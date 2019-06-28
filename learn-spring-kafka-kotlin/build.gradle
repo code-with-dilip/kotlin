@@ -1,0 +1,56 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.3.RELEASE'
+	id 'org.jetbrains.kotlin.jvm' version '1.3.21'
+	id 'org.jetbrains.kotlin.plugin.spring' version '1.3.21'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+
+group = 'com.learnkafka'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+sourceSets {
+	test {
+		java.srcDirs = ['src/test/kotlin', 'src/test/groovy/unit','src/test/groovy/intg']
+	}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.jetbrains.kotlin:kotlin-reflect'
+	implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+	implementation 'org.springframework.kafka:spring-kafka'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.kafka:spring-kafka-test'
+	testImplementation group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.4.15'
+	testImplementation ('org.spockframework:spock-core:1.2-groovy-2.4')
+	testImplementation 'org.spockframework:spock-spring:1.2-groovy-2.4'
+}
+
+compileKotlin {
+	kotlinOptions {
+		freeCompilerArgs = ['-Xjsr305=strict']
+		jvmTarget = '1.8'
+	}
+}
+
+compileTestKotlin {
+	kotlinOptions {
+		freeCompilerArgs = ['-Xjsr305=strict']
+		jvmTarget = '1.8'
+	}
+}
