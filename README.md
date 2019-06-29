@@ -363,6 +363,28 @@ val list = listOf("args", *args) //unpacks the args array and assign it to the l
 println(list)
 ```
 - **infix** call is a method invocation of special kind.
+- Strings and Regular Expressions.
+  - split, regular expressions(regex) and triple quoted method.
+- **triple quoted string**:  
+  - The can help avoid the need to use escape characters.
+  - This can handle the line breaks without having to provide the **\n** character.
+  - You are not allowed to have the \n as part of the triple quoted string.
+- Local function to avoid duplicating the code. Having a function inside a function.
+```
+fun validateUser(user : User): User{
+
+    fun validateBeforeSave(value: String, fieldName : String){
+        if(value.isEmpty())
+            throw IllegalArgumentException("$fieldName is not present for the $user.id")
+    }
+
+    validateBeforeSave(user.firstName, "firstName")
+    validateBeforeSave(user.lastName, "lastName")
+
+    return user
+}
+```
+
 
 
 

@@ -31,7 +31,10 @@ fun main(args: Array<String>) {
                        .|/ \"""
 
     println(kotlinLogo.trimMargin("."))
-
+    val price1 = """$99.9""";
     val price = """${'$'}99.9""";
+
     println(price)
+    println(price1)
+
 }
