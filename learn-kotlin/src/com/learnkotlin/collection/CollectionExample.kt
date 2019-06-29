@@ -20,6 +20,12 @@ fun iterateMap(){
     }
 }
 
+fun iterateCollection(){
+    for((index,value) in list.withIndex()){
+        println("$index and value is $value")
+    }
+}
+
 fun main(args: Array<String>) {
 
     println("$set")
@@ -32,6 +38,7 @@ fun main(args: Array<String>) {
     println(list.joinToString(";", "(", ")"))
 
     println(list.joinToString( ";", "(", ")"))
+    println(list.joinToString( separator = ";", prefix = "(",postfix =  ")"))
 
     println("${getName()}")
 
@@ -39,6 +46,9 @@ fun main(args: Array<String>) {
 
     iterateMap()
 
+    val list = listOf("args", *args) //unpacks the args array and assign it to the list.
+    println(list)
+    println(iterateCollection())
 
 
 }

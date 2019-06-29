@@ -343,6 +343,29 @@ fun tryCatch(x: String): Int {
 ```
 ## Chapter 3. Defining and calling functions
 
+### Nutshell
+- Kotlin doesn’t have its own set of collection classes.
+  - Kotlin added lot of functionalities to play with the collections.
+- **joinToString** is a handy method that performs string manipulations from the collection.
+- **Named arguments** - Kotlin has the concept of named arguments where you can pass the name of the argument as part of the function call.
+  ```
+  println(list.joinToString( separator = ";", prefix = "(",postfix =  ")"))
+  ```
+- Kotlin has the concept of default parameters, if a value is not passed.
+- All the top level functions when its compiled to byte code it takes of putting the function inside the kotlin file.
+- Constants in kotlin are named using **const**.  
+- The **extension function** is a simple thing: it’s a function that can be called as a member of a class but is defined outside of it.
+- The **extension properties** are a similar concept to functions.
+- **vararg**, **infix** and collection classes.
+- Spread operator used to unpack the array elements.
+```
+val list = listOf("args", *args) //unpacks the args array and assign it to the list.
+println(list)
+```
+- **infix** call is a method invocation of special kind.
+
+
+
 ### Create Collection in Kotlin (3.1)
 
 ```

@@ -6,6 +6,7 @@ import java.lang.StringBuilder
 
 fun String.lastChar(): Char = this.get(this.length - 1)
 fun String.lastCharSimple(): Char = get(length - 1)
+
 infix fun String.stringConcat(str: String) = this+"-"+str
 
 
@@ -31,6 +32,7 @@ fun validateUser(user : User): User{
 
     return user
 }
+
 
 
 

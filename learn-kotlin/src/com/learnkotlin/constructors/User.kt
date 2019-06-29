@@ -1,5 +1,7 @@
 package com.learnkotlin.constructors
 
+infix fun Person.infixCall(str: String) = this.name+str+"-"
+
 class User(val nickname: String)
 
 class Employee constructor(_name: String) {
@@ -16,7 +18,7 @@ class Employee constructor(_name: String) {
     init {
         name ="ddd"
     }
-     infix fun infixCall(str: String) = str+"-"
+
 
 
 
@@ -63,7 +65,7 @@ fun main(args: Array<String>) {
     val person = Person()
     println("person is ${person.name}")
     val infixResposne = person infixCall "ddd"
-    println(infixResposne)
+    println("infixResposne is $infixResposne")
 
     val student = Student(12)
     println("student is ${student}")
