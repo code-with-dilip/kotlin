@@ -18,5 +18,5 @@ fun main(args: Array<String>) {
     println(talkative.speak())
 
     val talkativeExtend = TalkativeExtend();
-//    talkativeExtend.whisper();
+    //talkativeExtend.whisper();
 }

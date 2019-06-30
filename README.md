@@ -385,9 +385,6 @@ fun User.validateUser(){
 
 ```
 
-
-
-
 ### Create Collection in Kotlin (3.1)
 
 ```
@@ -678,6 +675,39 @@ println("User is ${user1.id} - ${user1.firstName} - ${user1.lastName}")
 ```
 
 ## Chapter 4. Classes, objects, and interfaces
+
+### Nutshell
+- Declaring a class as a **data** class instructs the compiler to generate several standard methods for this class.
+- Kotlin uses the colon **:** after the class name to replace both the extends and implements keywords used in Java.
+- Interfaces
+  - **override** keyword is equivalent to **@override** annotation.
+  - No need to use **@default** annotation for method implementation in interface.
+  - Two interfaces with the same method is implemented by a same class.
+    - In this case you have to provide the implementation for both.
+    ```
+    super<Clickable>.showOff()
+    super<Focusable>.showOff()    
+    ```
+  - Interfaces cannot maintain state.
+
+- Kotlin classes and methods are **final** by default.    
+- In order to allow the creation of subclasses you need to add the **open** modifier in the class.
+- In order to allow the function to be overriden you need to add the **open** modifier to the method name.
+- A method that is marked **override** are open by default. It can be overriden by the classes that extends this.
+- Abstract Class - Kotlin supports **abstract** classes as like java.
+  - They are **open** by default.
+  - The non-abstract methods are not open by default.
+  - Abstract classes can maintain state.
+- This table is **Table 4.1. The meaning of access modifiers in a class** is great for **final, open, abstract and override** modifiers.  
+- Visibility Modifiers.
+  - public , internal, protected, private.
+  - Kotlin forbids you to access the less visible access modifiers.
+    - You cannot access a class that is marked internal with a public modifier.Check the example below **Table 4.2. Kotlin visibility modifiers**.
+  - Extension function does not get access to the protected or private members.
+- Sealed Classes
+  - Sealed classes are open by default.
+  - Kotlin provides a solution to this problem: **sealed** classes. You mark a superclass with the sealed modifier, and that restricts the possibility of creating subclasses. All the direct subclasses must be nested in the superclass.
+
 
 ### 4.1. DEFINING CLASS HIERARCHIES
 
