@@ -1,6 +1,7 @@
 package com.learnkotlin.functions
 
 import com.learnkotlin.domain.User
+import com.learnkotlin.domain.validateUser
 import java.lang.IllegalArgumentException
 import java.lang.StringBuilder
 
@@ -47,7 +48,10 @@ fun main(args: Array<String>) {
     println("output is : $output")
     val user = validateUser(User(1, "Dilip","Sundarraj"))
     println("User is ${user.id} - ${user.firstName} - ${user.lastName}")
-    val user1 = validateUser(User(1, "",""))
-    println("User is ${user1.id} - ${user1.firstName} - ${user1.lastName}")
+    /*val user1 = validateUser(User(1, "",""))
+    println("User is ${user1.id} - ${user1.firstName} - ${user1.lastName}")*/
+    val user2 = User(1, "","")
+    user2.validateUser()
+    println("User2 is ${user2.id} - ${user2.firstName} - ${user2.lastName}")
 
 }

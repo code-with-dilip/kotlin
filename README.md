@@ -370,19 +370,19 @@ println(list)
   - This can handle the line breaks without having to provide the **\n** character.
   - You are not allowed to have the \n as part of the triple quoted string.
 - Local function to avoid duplicating the code. Having a function inside a function.
+- Example of a extension function and local function together.
 ```
-fun validateUser(user : User): User{
+fun User.validateUser(){
 
     fun validateBeforeSave(value: String, fieldName : String){
         if(value.isEmpty())
-            throw IllegalArgumentException("$fieldName is not present for the $user.id")
+            throw IllegalArgumentException("$fieldName is not present for the $id")
     }
 
-    validateBeforeSave(user.firstName, "firstName")
-    validateBeforeSave(user.lastName, "lastName")
-
-    return user
+    validateBeforeSave(firstName, "firstName")
+    validateBeforeSave(lastName, "lastName")
 }
+
 ```
 
 
