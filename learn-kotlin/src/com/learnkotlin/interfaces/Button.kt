@@ -1,6 +1,10 @@
 package com.learnkotlin.interfaces
 
 open class Button : Clickable, Focusable {
+    override fun click2() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun showOff() {
         super<Clickable>.showOff()
         super<Focusable>.showOff()

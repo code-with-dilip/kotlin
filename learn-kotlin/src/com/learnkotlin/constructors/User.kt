@@ -15,6 +15,7 @@ class Employee constructor(_name: String) {
 
     val name:String
         get() = field.plus("dilip")
+
     init {
         name ="ddd"
     }
