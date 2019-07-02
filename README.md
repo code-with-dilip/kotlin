@@ -681,7 +681,7 @@ println("User is ${user1.id} - ${user1.firstName} - ${user1.lastName}")
 - Kotlin uses the colon **:** after the class name to replace both the extends and implements keywords used in Java.
 - Interfaces
   - **override** keyword is equivalent to **@override** annotation.
-  - No need to use **@default** annotation for method implementation in interface.
+  - No need to use **default** keyword for method implementation in interface.
   - Two interfaces with the same method is implemented by a same class.
     - In this case you have to provide the implementation for both.
     ```
@@ -714,15 +714,15 @@ init{
 ```
 - In order to compare objects it is advisable to use **==** in kotlin. But you have to override the **hashcode** and **equals** method if your class is not provided with the **data** annotation.
 - **data** class have the **toString**,**hashcode** and **equals** method automatically generated for you.
-- Kotlin treats all of its classes as **final** by default.
+- Kotlin treats all of its classes as **final** by default.  
 **object** keyword:  
 - The **object** declaration combines a class declaration and a declaration of a single instance of that class.
   - Unlike instances of regular classes, object declarations are created immediately at the point of definition, not through constructor calls from other places in the code.
-  - You are allowed to have **object** declarations inside a regular class.
+  - You are allowed to have **object** declarations inside a regular class.  
 **companion** objects:    
   - **companion** objects are the replacement for factory methods and static members. The one advantage over the top level functions is that the companion objects have access to the private members of the class.
   - if you need to write a function that can be called without having a class instance but needs access to the internals of a class, you can write it as a member of an object declaration inside that class.
-  - Extension functions can also be written to a **companion** object.
+  - Extension functions can also be written to a **companion** object.  
 **object for anonymous classes**    
   - **object** declaration can also be used for replacing anonymous classes.
   - Unlike **object** declarations, anonymous objects aren’t singletons. Every time an object expression is executed, a new instance of the object is created.
