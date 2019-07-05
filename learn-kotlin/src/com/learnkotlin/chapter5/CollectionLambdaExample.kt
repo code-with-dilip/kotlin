@@ -26,6 +26,7 @@ fun map(){
     println(numberList.map { i -> i*2 })
     println(people.map { Person::name })
     println(employees.filter { it.age == maxAge})
+
 }
 
 fun playingWithMap(){
@@ -64,6 +65,7 @@ val generate = generateSequence(0) { it+1 }
 val until100 = generate.takeWhile { it<=100 }
 
 
+
 val employeeAboveAge2 = { e:Employee -> e.age>2}
 
 fun main(args: Array<String>) {
@@ -71,11 +73,12 @@ fun main(args: Array<String>) {
     println(users.maxBy { it.id })
     println(users.maxBy({ u: User -> u.id})) // approach 2 without syntax shortcuts
     println(users.maxBy {  u: User -> u.id })
-
+    println(users.maxBy(User::id))
     println(users.maxBy(User::id))
 
-    run { println(42)} // not assigning a lambda a function to a variable
 
+    run { println(42)} // not assigning a lambda a function to a variable
+    run {collectionWithoutSequence()}
     println(people.joinToString(" ", transform = {p: Person -> p.name})) // names are seperated by a space.
 
     println(people.joinToString(" ")  {p -> p.name})

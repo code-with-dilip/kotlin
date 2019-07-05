@@ -1,7 +1,7 @@
 package com.learnkotlin.accessmodifier
 
- internal class TalkativeExtend : Talkative() {
-    override  fun whisper() {
+internal class TalkativeExtend : Talkative() {
+    override  protected  fun whisper() {
         println("WHISPER in TalkativeExtend")
         super.whisper();
     }

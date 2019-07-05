@@ -1295,6 +1295,77 @@ println("Extension Function size ${Employee.size(Employee.allEmployees)}")
 
 - Lambda expressions, or simply lambdas, are essentially small chunks of code that can be passed to other functions
 
+### Nutshell
+- You have the ability to declare the behavior and assign it to a variable and pass it as function parameters.
+**Lambdas**  
+-  Collections has lot of inbuilt functions to apply the functionality. **it** gives you the access to the actual object.
+```println(users.maxBy { it.id })
+```
+- **run** is a library function that runs a piece of code passed to it.
+```
+run { println(42)}
+```
+- When working with lambdas if the last argument is a lamda or if the function has one argumane which is a lamda then in that case we dont have to pass it inside the paranthesis.
+
+```
+users.maxBy({ u: User -> u.id}) // syntax1
+users.maxBy {  u: User -> u.id } // syntax2
+users.maxBy {  u -> u.id } // syntax3 type inferred
+users.maxBy {   it.id } // syntax4 "it" is an auto generated name.
+users.maxBy(User::id) // syntax5 using the method reference
+```
+- Storing a behavior in a variable.
+```
+val getAge = { p: Person -> p.age }
+```
+- You are allowed to access and edit the variables in Lamda. In Java its not allowed to edit a variable inside Lamda.
+- **FUNCTIONAL APIS FOR COLLECTIONS**
+  - Essentials: filter and map
+  - “all”, “any”, “count”, and “find”
+  - **groupBy** to group the collection with the key value passed to it.
+  - All the operations on the collection create intermediate lists.
+- Lazy Collection operations: **Sequences**
+```
+val namewithPList = employees.asSequence()
+            .map(Employee::name)
+           .filter { it.contains("p") }
+```
+  - In the sequence example, no intermediate collections to store the elements are created, so performance for a large number of elements will be noticeably better.
+  The elements in a sequence are evaluated lazily.
+- **Streams vs. sequences**
+  - Streams in Java and Sequences in Kotlin are the same concept.
+  - The reason for Kotlin have its own implementation is to support this concept in JVM less than Java8.
+- You can also create sequences using the **generateSequence()** method.
+```
+val generate = generateSequence(0) { it+1 }
+val until100 = generate.takeWhile { it<=100 }
+```
+- Lambda with Recievers : With And Apply
+- **With** Example
+```
+fun alphabetusingWithSimplified() : String{
+
+    return with(StringBuilder()){
+        for (letter in 'A'..'Z') {
+            append(letter)
+        }
+        append("\nNow using with Simplified")
+        toString()
+    }
+}
+```
+- **apply example** - This apply function is as similar to the with function except the fact **with** always returns a value.
+
+```
+
+fun alphabetApply() = StringBuilder().apply {
+    for (letter in 'A'..'Z') {
+        append(letter)
+    }
+    append("\nNow I know the alphabet using apply!")
+}.toString()
+```
+
 ### 5.1. LAMBDA EXPRESSIONS AND MEMBER REFERENCES
 
 - Functional programming offers you another approach to solve this problem: the ability to treat functions as values.
